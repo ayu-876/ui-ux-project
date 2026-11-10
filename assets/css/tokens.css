@@ -1,0 +1,122 @@
+/* ==========================================================================
+   JanSeva AI — Design tokens
+   Single source of truth for colour, type, spacing, radius and elevation.
+   Every value below is referenced by variable elsewhere; no component file
+   hard-codes a colour or a font size.
+   ========================================================================== */
+
+:root {
+  /* ---- Brand ---------------------------------------------------------- */
+  --c-primary: #1d5bd6;        /* actions, links, active nav            */
+  --c-primary-dark: #1749a8;   /* hover / pressed                        */
+  --c-primary-light: #e8effc;  /* tinted fills, selected rows            */
+  --c-navy: #0f2557;           /* sidebar, headings, logo wordmark       */
+  --c-navy-dark: #0a1a3f;      /* sidebar hover                          */
+
+  /* ---- Text ----------------------------------------------------------- */
+  --c-text: #111827;           /* body copy — 17.7:1 on white            */
+  --c-text-secondary: #4b5563; /* supporting copy — 7.6:1 on white       */
+  --c-text-muted: #6b7280;     /* placeholders, timestamps — 4.8:1       */
+  --c-text-inverse: #ffffff;
+
+  /* ---- Surfaces ------------------------------------------------------- */
+  --c-bg: #ffffff;
+  --c-bg-subtle: #f7f9fc;      /* page background behind cards           */
+  --c-bg-sunken: #eef2f8;      /* inputs on tinted panels, code blocks   */
+
+  /* ---- Lines ---------------------------------------------------------- */
+  /* Decorative only — 1.2:1 and 1.5:1 against white. Never use either as
+     the sole boundary of an interactive control: WCAG 1.4.11 wants 3:1
+     there, which is why inputs and checkboxes use --c-border-input.      */
+  --c-border: #e5e9f2;         /* card and section dividers              */
+  --c-border-strong: #d1d5db;  /* heavier divider, still decorative      */
+  --c-border-input: #6b7280;   /* control boundaries — 4.8:1             */
+
+  /* ---- Status --------------------------------------------------------- */
+  /* Each pair clears 4.5:1 both on white and on its own tint, so status
+     text stays readable whichever surface it lands on.                   */
+  --c-success: #047857;        /* 5.5:1 white · 4.9:1 tint               */
+  --c-success-bg: #e7f5ef;
+  --c-warning: #b45309;        /* 5.0:1 white · 4.6:1 tint               */
+  --c-warning-bg: #fdf3e7;
+  --c-danger: #b91c1c;         /* 6.5:1 white · 5.7:1 tint               */
+  --c-danger-bg: #fdecec;
+  --c-info: #1d5bd6;           /* 6.0:1 white · 5.2:1 tint               */
+  --c-info-bg: #e8effc;
+
+  /* ---- Focus ---------------------------------------------------------- */
+  /* 3px ring at 3:1 against both white and navy backgrounds.             */
+  --c-focus: #0b3fa8;
+  --c-focus-inverse: #ffd166;
+  --focus-ring: 0 0 0 3px var(--c-focus);
+  --focus-ring-inverse: 0 0 0 3px var(--c-focus-inverse);
+
+  /* ---- Typography ----------------------------------------------------- */
+  /* Inter carries Latin; the Noto Sans families are listed after it so a
+     Devanagari, Kannada, Tamil, Telugu, Bengali, Gujarati, Gurmukhi, Odia
+     or Malayalam glyph falls through to the matching script font. Order
+     matters: the browser walks the stack per character, not per string.   */
+  --font-sans: "Inter", "Noto Sans Devanagari", "Noto Sans Kannada",
+    "Noto Sans Telugu", "Noto Sans Tamil", "Noto Sans Malayalam",
+    "Noto Sans Bengali", "Noto Sans Gujarati", "Noto Sans Gurmukhi",
+    "Noto Sans Oriya", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  /* Type scale — 1.250 (major third) from a 16px base, rounded to whole
+     pixels. Line heights are unitless so they inherit cleanly.           */
+  --fs-display: 2.5rem;   /* 40px — hero headline            */
+  --fs-h1: 2rem;          /* 32px — page title               */
+  --fs-h2: 1.5rem;        /* 24px — section heading          */
+  --fs-h3: 1.25rem;       /* 20px — card heading             */
+  --fs-h4: 1.0625rem;     /* 17px — sub-heading              */
+  --fs-body: 1rem;        /* 16px — body copy                */
+  --fs-sm: 0.9375rem;     /* 15px — nav, secondary copy      */
+  --fs-xs: 0.8125rem;     /* 13px — captions, badges         */
+
+  --lh-tight: 1.2;        /* display and headings            */
+  --lh-snug: 1.35;        /* card headings                   */
+  --lh-body: 1.6;         /* paragraphs — eases Indic scripts*/
+
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+  --fw-black: 800;
+
+  /* ---- Spacing -------------------------------------------------------- */
+  /* 4px base grid. Use these, not arbitrary pixel values.                */
+  --sp-1: 0.25rem;  /*  4px */
+  --sp-2: 0.5rem;   /*  8px */
+  --sp-3: 0.75rem;  /* 12px */
+  --sp-4: 1rem;     /* 16px */
+  --sp-5: 1.25rem;  /* 20px */
+  --sp-6: 1.5rem;   /* 24px */
+  --sp-8: 2rem;     /* 32px */
+  --sp-10: 2.5rem;  /* 40px */
+  --sp-12: 3rem;    /* 48px */
+  --sp-16: 4rem;    /* 64px */
+
+  /* ---- Radius --------------------------------------------------------- */
+  --r-sm: 6px;
+  --r-md: 8px;    /* buttons, inputs  */
+  --r-lg: 12px;   /* cards            */
+  --r-xl: 16px;   /* panels           */
+  --r-full: 999px;
+
+  /* ---- Elevation ------------------------------------------------------ */
+  --sh-sm: 0 1px 2px rgba(15, 37, 87, 0.06);
+  --sh-md: 0 2px 6px rgba(15, 37, 87, 0.05);
+  --sh-lg: 0 8px 24px rgba(15, 37, 87, 0.1);
+  --sh-xl: 0 20px 48px rgba(15, 37, 87, 0.16);
+
+  /* ---- Layout --------------------------------------------------------- */
+  --w-container: 1200px;
+  --w-prose: 68ch;        /* ISO 24495-1 readable measure     */
+  --h-header: 64px;
+  --w-sidebar: 232px;
+  --tap-min: 44px;        /* WCAG 2.2 target size             */
+
+  /* ---- Motion --------------------------------------------------------- */
+  --t-fast: 120ms;
+  --t-base: 180ms;
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+}
