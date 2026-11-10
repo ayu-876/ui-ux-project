@@ -1,0 +1,350 @@
+/* ==========================================================================
+   JanSeva AI — Page-specific styles
+   Only rules that genuinely belong to one page live here. Anything reused
+   twice has already moved into components.css.
+   ========================================================================== */
+
+/* ---- Landing hero ------------------------------------------------------- */
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding-block: var(--sp-16) var(--sp-10);
+  background: linear-gradient(180deg, var(--c-primary-light) 0%, var(--c-bg) 100%);
+}
+
+/* Tricolour ribbon motif, decorative only — hidden from assistive tech and
+   dropped on small screens where it would crowd the headline.             */
+.hero__ribbon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 23.75rem;
+  pointer-events: none;
+}
+
+@media (max-width: 61.999rem) {
+  .hero__ribbon {
+    display: none;
+  }
+}
+
+.hero__inner {
+  position: relative;
+  max-width: 44rem;
+}
+
+.hero__title {
+  font-size: var(--fs-display);
+  line-height: var(--lh-tight);
+  color: var(--c-navy);
+}
+
+@media (max-width: 35.999rem) {
+  .hero__title {
+    font-size: var(--fs-h1);
+  }
+}
+
+.hero__title em {
+  display: block;
+  color: var(--c-primary);
+  font-style: normal;
+}
+
+.hero__lede {
+  margin-top: var(--sp-5);
+  font-size: var(--fs-h4);
+  color: var(--c-text-secondary);
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+  margin-top: var(--sp-8);
+}
+
+/* ---- Landing feature strip --------------------------------------------- */
+.feature {
+  text-align: left;
+}
+
+.feature .card__icon {
+  margin-bottom: var(--sp-4);
+}
+
+.feature h3 {
+  margin-bottom: var(--sp-2);
+}
+
+.feature p {
+  color: var(--c-text-secondary);
+  font-size: var(--fs-sm);
+  max-width: none;
+}
+
+/* ---- Language strip on the landing page -------------------------------- */
+.lang-strip {
+  padding-block: var(--sp-10);
+  background: var(--c-bg-subtle);
+  border-block: 1px solid var(--c-border);
+}
+
+.lang-strip h2 {
+  margin-bottom: var(--sp-5);
+  font-size: var(--fs-h3);
+}
+
+/* ---- Language selection page ------------------------------------------- */
+.lang-page {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  padding: var(--sp-8) var(--sp-5);
+  background: var(--c-bg-subtle);
+}
+
+.lang-card {
+  width: 100%;
+  max-width: 46rem;
+  padding: var(--sp-8);
+  background: var(--c-bg);
+  border-radius: var(--r-xl);
+  box-shadow: var(--sh-xl);
+}
+
+.lang-card__head {
+  display: grid;
+  gap: var(--sp-2);
+  margin-bottom: var(--sp-6);
+  text-align: center;
+  justify-items: center;
+}
+
+.lang-card__head p {
+  color: var(--c-text-secondary);
+}
+
+.lang-card__foot {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+  justify-content: flex-end;
+  margin-top: var(--sp-6);
+  padding-top: var(--sp-5);
+  border-top: 1px solid var(--c-border);
+}
+
+/* ---- Dashboard greeting ------------------------------------------------- */
+.greeting {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-5);
+  padding: var(--sp-6);
+  margin-bottom: var(--sp-6);
+  color: var(--c-text-inverse);
+  background: linear-gradient(120deg, var(--c-navy) 0%, var(--c-primary) 100%);
+  border-radius: var(--r-xl);
+}
+
+.greeting h1 {
+  color: var(--c-text-inverse);
+  font-size: var(--fs-h2);
+}
+
+.greeting p {
+  margin-top: var(--sp-1);
+  color: #d8e3f8;
+  max-width: none;
+}
+
+.greeting__icon {
+  display: grid;
+  place-items: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  background: rgba(255, 255, 255, 0.16);
+  border-radius: var(--r-lg);
+  flex: none;
+}
+
+@media (max-width: 35.999rem) {
+  .greeting__icon {
+    display: none;
+  }
+}
+
+/* Top bar inside the signed-in shell. */
+.app-bar {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+  margin-bottom: var(--sp-6);
+}
+
+.app-bar__spacer {
+  flex: 1;
+}
+
+.app-bar__user {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  color: var(--c-navy);
+  text-decoration: none;
+}
+
+/* ---- Service detail ---------------------------------------------------- */
+.service-head {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-5);
+  margin-bottom: var(--sp-6);
+}
+
+.service-head__icon {
+  display: grid;
+  place-items: center;
+  width: 4rem;
+  height: 4rem;
+  color: var(--c-primary);
+  background: var(--c-primary-light);
+  border-radius: var(--r-lg);
+  flex: none;
+}
+
+.service-head p {
+  margin-top: var(--sp-2);
+  color: var(--c-text-secondary);
+}
+
+.service-layout {
+  display: grid;
+  gap: var(--sp-6);
+  grid-template-columns: 1fr 20rem;
+  align-items: start;
+}
+
+@media (max-width: 55.999rem) {
+  .service-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---- Application form -------------------------------------------------- */
+.form-shell {
+  max-width: 44rem;
+}
+
+.form-grid {
+  display: grid;
+  gap: var(--sp-5);
+}
+
+@media (min-width: 40rem) {
+  .form-grid--2 {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .form-grid--2 .field--wide {
+    grid-column: 1 / -1;
+  }
+}
+
+.form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+  justify-content: space-between;
+  margin-top: var(--sp-8);
+  padding-top: var(--sp-5);
+  border-top: 1px solid var(--c-border);
+}
+
+/* ---- AI assistant page ------------------------------------------------- */
+.assistant {
+  max-width: 52rem;
+  margin-inline: auto;
+}
+
+.assistant__head {
+  display: grid;
+  justify-items: center;
+  gap: var(--sp-3);
+  margin-bottom: var(--sp-8);
+  text-align: center;
+}
+
+.assistant__head .card__icon {
+  margin: 0;
+  width: 3.5rem;
+  height: 3.5rem;
+}
+
+.assistant__head p {
+  color: var(--c-text-secondary);
+}
+
+/* ---- Profile ----------------------------------------------------------- */
+.profile-layout {
+  display: grid;
+  gap: var(--sp-6);
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+}
+
+@media (max-width: 61.999rem) {
+  .profile-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.profile-id {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+  padding-bottom: var(--sp-5);
+  margin-bottom: var(--sp-5);
+  border-bottom: 1px solid var(--c-border);
+}
+
+.profile-id__name {
+  font-size: var(--fs-h3);
+  color: var(--c-navy);
+}
+
+.profile-id__mail {
+  font-size: var(--fs-sm);
+  color: var(--c-text-secondary);
+}
+
+/* ---- Prototype notice --------------------------------------------------
+   Stated on every page. JanSeva AI is a student coursework prototype and
+   is not a government service; the notice makes that unmissable rather
+   than burying it in a footer line.                                       */
+.proto-note {
+  padding: var(--sp-3) 0;
+  background: var(--c-warning-bg);
+  color: var(--c-warning);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  text-align: center;
+}
+
+.proto-note p {
+  max-width: none;
+  margin-inline: auto;
+}
+
+/* ---- Utilities ---------------------------------------------------------- */
+.u-center    { text-align: center; }
+.u-muted     { color: var(--c-text-secondary); }
+.u-mt-0      { margin-top: 0; }
+.u-mt-2      { margin-top: var(--sp-2); }
+.u-mt-4      { margin-top: var(--sp-4); }
+.u-mt-6      { margin-top: var(--sp-6); }
+.u-mb-4      { margin-bottom: var(--sp-4); }
+.u-mb-6      { margin-bottom: var(--sp-6); }
+.u-flow > * + * { margin-top: var(--sp-4); }
