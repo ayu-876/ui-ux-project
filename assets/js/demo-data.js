@@ -72,6 +72,65 @@ const ASSISTANT_FALLBACK = {
   example: null
 };
 
+const ASSISTANT_REPLY_KEYS = {
+  "self-attested": {
+    id: "self-attested",
+    termKey: "glossary.t3.term",
+    bodyKey: "asst.reply.selfAttested.body",
+    exKey: "asst.reply.selfAttested.ex"
+  },
+  affidavit: {
+    id: "affidavit",
+    termKey: "glossary.t2.term",
+    bodyKey: "asst.reply.affidavit.body",
+    exKey: "asst.reply.affidavit.ex"
+  },
+  domicile: {
+    id: "domicile",
+    termKey: "glossary.t1.term",
+    bodyKey: "asst.reply.domicile.body",
+    exKey: "asst.reply.domicile.ex"
+  },
+  "annual family income": {
+    id: "annual family income",
+    termKey: "glossary.t4.term",
+    bodyKey: "asst.reply.income.body",
+    exKey: "asst.reply.income.ex"
+  },
+  beneficiary: {
+    id: "beneficiary",
+    termKey: "glossary.t5.term",
+    bodyKey: "asst.reply.beneficiary.body",
+    exKey: "asst.reply.beneficiary.ex"
+  }
+};
+
+function getAssistantReply(key, code) {
+  const entry = ASSISTANT_REPLY_KEYS[key];
+  if (!entry) return getAssistantFallback(code);
+  if (typeof translate === "function") {
+    return {
+      id: entry.id,
+      term: translate(entry.termKey, code),
+      body: translate(entry.bodyKey, code),
+      example: translate(entry.exKey, code)
+    };
+  }
+  return ASSISTANT_REPLIES[key] || ASSISTANT_FALLBACK;
+}
+
+function getAssistantFallback(code) {
+  if (typeof translate === "function") {
+    return {
+      id: "fallback",
+      term: translate("asst.fallback.term", code),
+      body: translate("asst.fallback.body", code),
+      example: null
+    };
+  }
+  return ASSISTANT_FALLBACK;
+}
+
 /* Populate every element marked with a demo-user field. */
 function applyDemoUser() {
   const map = {
@@ -84,6 +143,7 @@ function applyDemoUser() {
   };
 
   document.querySelectorAll("[data-user]").forEach(function (el) {
+    if (el.dataset.i18n) return;
     const value = map[el.dataset.user];
     if (value) el.textContent = value;
   });

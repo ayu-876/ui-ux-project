@@ -350,6 +350,74 @@
   color: var(--c-primary);
 }
 
+/* Header language dropdown menu — progressively enhanced by app.js. */
+.lang-menu-wrap {
+  position: relative;
+  display: inline-flex;
+}
+
+.lang-menu {
+  position: absolute;
+  top: calc(100% + var(--sp-2));
+  right: 0;
+  z-index: 60;
+  display: grid;
+  gap: var(--sp-1);
+  min-width: 14rem;
+  max-width: calc(100vw - 2rem);
+  max-height: 75vh;
+  overflow-y: auto;
+  padding: var(--sp-2);
+  background: var(--c-bg);
+  border: 1px solid var(--c-border-strong);
+  border-radius: var(--r-lg);
+  box-shadow: var(--sh-lg);
+}
+
+.lang-menu[hidden] {
+  display: none;
+}
+
+.lang-menu__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-3);
+  width: 100%;
+  min-height: var(--tap-min);
+  padding: var(--sp-2) var(--sp-3);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  text-align: left;
+  color: var(--c-text);
+  border-radius: var(--r-md);
+  transition: background-color var(--t-fast) var(--ease);
+}
+
+.lang-menu__item:hover {
+  background: var(--c-primary-light);
+  color: var(--c-navy);
+}
+
+.lang-menu__item[aria-checked="true"] {
+  background: var(--c-primary-light);
+  color: var(--c-primary);
+  font-weight: var(--fw-semibold);
+}
+
+.lang-menu__item[aria-checked="true"]::after {
+  content: "✓";
+  margin-left: var(--sp-2);
+  font-weight: var(--fw-bold);
+}
+
+.lang-menu__latin {
+  margin-left: auto;
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-regular);
+  color: var(--c-text-secondary);
+}
+
 /* Twelve-up grid of language tiles. Each tile shows the language in its own
    script above the English name, so a citizen who cannot read the Latin
    label still recognises their language.                                  */
@@ -407,7 +475,7 @@
   color: var(--c-primary);
 }
 
-/* Marquee of the twelve scripts on the landing page. */
+/* Interactive pills for the twelve scripts on the landing page. */
 .lang-chips {
   display: flex;
   flex-wrap: wrap;
@@ -416,13 +484,40 @@
   padding: 0;
 }
 
-.lang-chips li {
+.lang-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  min-height: var(--tap-min);
   padding: var(--sp-2) var(--sp-4);
   font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  color: var(--c-text);
   background: var(--c-bg);
-  border: 1px solid var(--c-border);
+  border: 1px solid var(--c-border-input);
   border-radius: var(--r-full);
   box-shadow: var(--sh-sm);
+  transition: border-color var(--t-fast) var(--ease),
+    background-color var(--t-fast) var(--ease);
+}
+
+.lang-chip:hover {
+  border-color: var(--c-primary);
+  background: var(--c-primary-light);
+  color: var(--c-navy);
+}
+
+.lang-chip[aria-pressed="true"] {
+  border-color: var(--c-primary);
+  border-width: 2px;
+  background: var(--c-primary-light);
+  color: var(--c-navy);
+  font-weight: var(--fw-semibold);
+}
+
+.lang-chip[aria-pressed="true"]::after {
+  content: " ✓";
+  color: var(--c-primary);
 }
 
 /* ---- Stepper -----------------------------------------------------------

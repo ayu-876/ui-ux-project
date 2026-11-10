@@ -39,6 +39,10 @@
     gap: var(--sp-8);
     padding-inline: var(--sp-10);
   }
+
+  .site-nav a {
+    white-space: nowrap;
+  }
 }
 
 .site-header__brand {
