@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Assistant · JanSeva AI</title>
+<meta name="description" content="Ask about government services and legal terms in your language.">
+<meta name="theme-color" content="#0F2557">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+
+<!-- Load order matters: tokens define the variables every later file reads,
+     fonts registers the ten families, then base, layout, components, pages. -->
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/fonts.css">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/layout.css">
+<link rel="stylesheet" href="assets/css/components.css">
+<link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<div id="live-region" class="sr-only" role="status" aria-live="polite"></div>
+<div class="proto-note">
+  <p class="container">Student coursework prototype — not a government website and not connected to any government service.</p>
+</div>
+<header class="site-header">
+  <a class="site-header__brand" href="index.html"><img src="assets/img/logo.svg" width="30" height="34" alt=""><span>JanSeva&nbsp;<em>AI</em></span></a>
+  <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Main menu">
+    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+  </button>
+  <nav class="site-nav" id="site-nav" aria-label="Main">
+    <a href="index.html" data-i18n="nav.home">Home</a>
+    <a href="services.html" data-i18n="nav.services">Services</a>
+    <a href="assistant.html" aria-current="page" data-i18n="nav.help">Help</a>
+    <a href="glossary.html" data-i18n="nav.glossary">Glossary</a>
+  </nav>
+  <span class="site-header__spacer"></span>
+  <a class="lang-switch" href="language.html" data-i18n-label="lang.switch" aria-label="Change language">
+    <svg class="icon icon--sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 2.5 15.4 0 18M12 3c-2.5 2.6-2.5 15.4 0 18"/></svg><span data-lang-display>English</span><svg class="icon icon--sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+  </a>
+  <a class="avatar" href="profile.html" aria-label="Your profile"><span data-user="initial">A</span></a>
+</header>
+
+<main id="main" class="section container">
+  <div class="assistant">
+
+    <div class="assistant__head">
+      <span class="card__icon" aria-hidden="true"><svg class="icon icon--lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.8 4.7L18.5 9.5l-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8z"/><path d="M18.5 15.5l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8z"/></svg></span>
+      <h1>AI Assistant</h1>
+      <p>Ask about a service, a form field or a term you do not recognise —
+         in English, Hindi, Kannada or any of the twelve languages.</p>
+    </div>
+
+    <h2 class="sr-only">Conversation</h2>
+    <div class="chat" id="chat-log" role="log" aria-live="polite" aria-label="Conversation with the assistant">
+
+      <div class="chat__msg chat__msg--user">
+        <div class="chat__bubble"><p>What does self-attested document mean?</p></div>
+      </div>
+
+      <div class="chat__msg">
+        <div class="chat__avatar" aria-hidden="true">AI</div>
+        <div class="chat__bubble">
+          <p><span class="chat__term">Self-attested</span> means you take a photocopy
+          of your document and sign it yourself to confirm it is a true copy. You do
+          not need a notary or a gazetted officer for this.</p>
+          <p class="term__example">Example: photocopy your Aadhaar card, then sign across the bottom of the copy.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <form class="composer" id="assistant-form">
+      <label class="sr-only" for="assistant-input">Ask a question</label>
+      <input class="input" id="assistant-input" type="text"
+             placeholder="Ask a question in your language…" autocomplete="off">
+      <button class="composer__send" type="submit" aria-label="Send question"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 3L3 10.5l7 3 3 7z"/><path d="M21 3L10 13.5"/></svg></button>
+    </form>
+
+    <h2 class="sr-only">Suggested questions</h2>
+    <ul class="suggestions">
+        <li><button type="button" data-ask="What does self-attested mean?">What does self-attested mean?</button></li>
+        <li><button type="button" data-ask="What is an affidavit?">What is an affidavit?</button></li>
+        <li><button type="button" data-ask="What counts as annual family income?">What counts as annual family income?</button></li>
+    </ul>
+
+    <div class="callout u-mt-6">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5.5"/><circle cx="12" cy="16.5" r=".7" fill="currentColor" stroke="none"/></svg>
+      <p>The assistant explains terms and points to the right service. It cannot
+      check your documents or tell you whether an application will be approved.</p>
+    </div>
+
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__grid">
+      <div>
+        <h2>JanSeva AI</h2>
+        <p>Government services explained and completed in twelve Indian languages.</p>
+      </div>
+      <div>
+        <h2>Services</h2>
+        <ul>
+          <li><a href="services.html">All services</a></li>
+          <li><a href="service-income-certificate.html">Income Certificate</a></li>
+          <li><a href="apply.html">Track an application</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Help</h2>
+        <ul>
+          <li><a href="assistant.html">AI Assistant</a></li>
+          <li><a href="glossary.html">Legal terms glossary</a></li>
+          <li><a href="language.html">Change language</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="site-footer__note">
+      Built as coursework for the Advanced UI/UX course, East Point College of
+      Engineering and Technology. This is a design prototype. It is not
+      affiliated with, endorsed by, or connected to any government body, and
+      no real application is submitted anywhere.
+    </p>
+  </div>
+</footer>
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/demo-data.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>
