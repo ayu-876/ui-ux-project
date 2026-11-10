@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="34" height="38" viewBox="0 0 34 38" role="img" aria-label="JanSeva AI">
+  <title>JanSeva AI</title>
+  <rect x="3" y="33" width="28" height="4" rx="1" fill="#FFFFFF"/>
+  <rect x="6" y="29" width="22" height="4" rx="1" fill="#FFFFFF"/>
+  <rect x="11" y="12" width="12" height="17" fill="#FFFFFF"/>
+  <path d="M11 15h12M11 19h12M11 23h12" stroke="#0F2557" stroke-width="1.2"/>
+  <path d="M7 12h20l-3-5H10z" fill="#FFFFFF"/>
+  <circle cx="17" cy="4.5" r="3.5" fill="#7FA6EE"/>
+  <circle cx="17" cy="4.5" r="1.4" fill="#0F2557"/>
+</svg>
