@@ -1,0 +1,375 @@
+/* ==========================================================================
+   JanSeva AI — Layout
+   Page scaffolding: containers, the public header, the signed-in shell and
+   its sidebar, and the footer. Component skins live in components.css.
+   ========================================================================== */
+
+/* ---- Container ---------------------------------------------------------- */
+.container {
+  width: 100%;
+  max-width: var(--w-container);
+  margin-inline: auto;
+  padding-inline: var(--sp-5);
+}
+
+@media (min-width: 48rem) {
+  .container {
+    padding-inline: var(--sp-10);
+  }
+}
+
+/* ---- Public header ------------------------------------------------------
+   Used on the landing, services, service-detail, form, assistant and
+   glossary pages — anything a citizen can reach before signing in.        */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  min-height: var(--h-header);
+  display: flex;
+  align-items: center;
+  gap: var(--sp-5);
+  padding: var(--sp-2) var(--sp-5);
+  background: var(--c-bg);
+  border-bottom: 1px solid var(--c-border);
+}
+
+@media (min-width: 48rem) {
+  .site-header {
+    gap: var(--sp-8);
+    padding-inline: var(--sp-10);
+  }
+}
+
+.site-header__brand {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-black);
+  color: var(--c-navy);
+  text-decoration: none;
+  flex: none;
+}
+
+.site-header__brand:hover {
+  color: var(--c-navy);
+}
+
+.site-header__brand em {
+  color: var(--c-primary);
+  font-style: normal;
+}
+
+.site-header__spacer {
+  flex: 1;
+}
+
+/* Primary navigation — collapses behind a disclosure button under 48rem. */
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-6);
+}
+
+.site-nav a {
+  display: inline-block;
+  padding: var(--sp-2) 0;
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  color: var(--c-text);
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+}
+
+.site-nav a:hover {
+  color: var(--c-primary);
+}
+
+.site-nav a[aria-current="page"] {
+  color: var(--c-primary);
+  font-weight: var(--fw-semibold);
+  border-bottom-color: var(--c-primary);
+}
+
+.nav-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: var(--tap-min);
+  height: var(--tap-min);
+  border-radius: var(--r-md);
+  color: var(--c-text);
+}
+
+.nav-toggle:hover {
+  background: var(--c-bg-sunken);
+}
+
+@media (max-width: 47.999rem) {
+  .nav-toggle {
+    display: inline-flex;
+  }
+
+  .site-nav {
+    position: absolute;
+    inset: var(--h-header) 0 auto;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: var(--sp-2) var(--sp-5) var(--sp-4);
+    background: var(--c-bg);
+    border-bottom: 1px solid var(--c-border);
+    box-shadow: var(--sh-lg);
+  }
+
+  .site-nav[hidden] {
+    display: none;
+  }
+
+  .site-nav a {
+    padding: var(--sp-3) 0;
+    border-bottom: 1px solid var(--c-border);
+  }
+
+  .site-nav a[aria-current="page"] {
+    border-bottom-color: var(--c-border);
+  }
+}
+
+/* On a narrow phone the header runs out of room before anything wraps, and
+   a flex row with nowrap pushes the page sideways rather than overflowing
+   itself. Below 30rem the language control collapses to its globe — it
+   already carries an aria-label, so nothing is lost to a screen reader —
+   and the wordmark steps down a size. */
+@media (max-width: 29.999rem) {
+  .site-header {
+    gap: var(--sp-2);
+    padding-inline: var(--sp-4);
+  }
+
+  .site-header__brand {
+    font-size: var(--fs-h4);
+  }
+
+  .lang-switch {
+    padding-inline: var(--sp-3);
+  }
+
+  .lang-switch [data-lang-display],
+  .lang-switch .icon:last-child {
+    display: none;
+  }
+
+  .site-header .btn {
+    padding-inline: var(--sp-4);
+  }
+}
+
+/* ---- Signed-in shell ----------------------------------------------------
+   Sidebar plus content. CSS grid rather than fixed positioning, so the
+   content column cannot slide under the sidebar at any width.             */
+.app-shell {
+  display: grid;
+  grid-template-columns: var(--w-sidebar) 1fr;
+  min-height: 100vh;
+}
+
+/* min-width: 0 on both tracks. A grid item defaults to min-width: auto,
+   which refuses to shrink below its content — that is what lets a long
+   sidebar or a wide table push the whole page sideways. */
+.app-main {
+  min-width: 0;
+  background: var(--c-bg-subtle);
+  padding: var(--sp-6) var(--sp-5) var(--sp-12);
+}
+
+@media (min-width: 48rem) {
+  .app-main {
+    padding: var(--sp-8) var(--sp-10) var(--sp-16);
+  }
+}
+
+/* ---- Sidebar ------------------------------------------------------------ */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-1);
+  min-width: 0;
+  padding: var(--sp-5) var(--sp-3);
+  background: var(--c-navy);
+  color: var(--c-text-inverse);
+}
+
+.sidebar__brand {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  margin-bottom: var(--sp-6);
+  padding-inline: var(--sp-2);
+  font-size: var(--fs-h4);
+  font-weight: var(--fw-black);
+  color: var(--c-text-inverse);
+  text-decoration: none;
+}
+
+.sidebar__brand:hover {
+  color: var(--c-text-inverse);
+}
+
+/* "AI" is set in the accent colour, not italics — <em> is used so the
+   distinction survives with CSS off. On navy the accent lifts to a paler
+   blue that still clears 4.5:1 against the sidebar. */
+.sidebar__brand em {
+  color: #9db9f2;
+  font-style: normal;
+}
+
+.sidebar__link {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  min-height: var(--tap-min);
+  padding: var(--sp-2) var(--sp-3);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  color: var(--c-text-inverse);
+  text-decoration: none;
+  border-radius: var(--r-md);
+}
+
+.sidebar__link:hover {
+  background: var(--c-navy-dark);
+  color: var(--c-text-inverse);
+}
+
+.sidebar__link[aria-current="page"] {
+  background: var(--c-primary);
+  font-weight: var(--fw-semibold);
+}
+
+.sidebar__link .badge {
+  margin-left: auto;
+}
+
+/* Pushes Help and Logout to the bottom of the rail. */
+.sidebar__gap {
+  flex: 1;
+  min-height: var(--sp-6);
+}
+
+.sidebar__divider {
+  height: 1px;
+  margin: var(--sp-3) var(--sp-2);
+  background: rgba(255, 255, 255, 0.16);
+  border: 0;
+}
+
+/* Under 60rem the rail becomes a horizontal scroller above the content:
+   no off-canvas drawer to trap focus, and every item stays reachable.     */
+@media (max-width: 59.999rem) {
+  .app-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--sp-2);
+    padding: var(--sp-2) var(--sp-4);
+    overflow-x: auto;
+  }
+
+  .sidebar__brand,
+  .sidebar__gap,
+  .sidebar__divider {
+    display: none;
+  }
+
+  .sidebar__link {
+    flex: none;
+    white-space: nowrap;
+  }
+}
+
+/* ---- Footer ------------------------------------------------------------- */
+.site-footer {
+  padding: var(--sp-10) 0;
+  background: var(--c-navy);
+  color: var(--c-text-inverse);
+  font-size: var(--fs-sm);
+}
+
+.site-footer a {
+  color: var(--c-text-inverse);
+  font-weight: var(--fw-regular);
+}
+
+.site-footer__grid {
+  display: grid;
+  gap: var(--sp-8);
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+}
+
+.site-footer h2 {
+  margin-bottom: var(--sp-3);
+  font-size: var(--fs-h4);
+  color: var(--c-text-inverse);
+}
+
+.site-footer ul {
+  display: grid;
+  gap: var(--sp-2);
+  list-style: none;
+  padding: 0;
+}
+
+.site-footer__note {
+  margin-top: var(--sp-8);
+  padding-top: var(--sp-5);
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+  color: #c7d2e8;
+  max-width: none;
+}
+
+/* ---- Section rhythm ----------------------------------------------------- */
+.section {
+  padding-block: var(--sp-12);
+}
+
+.section--tight {
+  padding-block: var(--sp-8);
+}
+
+.section__head {
+  margin-bottom: var(--sp-6);
+}
+
+.section__head p {
+  margin-top: var(--sp-2);
+  color: var(--c-text-secondary);
+}
+
+/* ---- Generic grids ------------------------------------------------------ */
+.grid {
+  display: grid;
+  gap: var(--sp-5);
+}
+
+.grid--2 { grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr)); }
+.grid--3 { grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); }
+.grid--4 { grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr)); }
+
+/* Sidebar-and-content split used by Services and the Glossary. */
+.split {
+  display: grid;
+  gap: var(--sp-8);
+  align-items: start;
+  grid-template-columns: 15rem 1fr;
+}
+
+@media (max-width: 55.999rem) {
+  .split {
+    grid-template-columns: 1fr;
+  }
+}
