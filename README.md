@@ -7,9 +7,11 @@ Built as coursework for the Advanced UI/UX course at East Point College of
 Engineering and Technology (Problem 7 — Twelve-Language Government Service
 Portal).
 
+🎨 **Figma Design & Prototype:** [JanSeva AI – Website Prototype](https://www.figma.com/design/AJ597dJCheWnMUjGzU0BL5/JanSeva-AI-%E2%80%93-Website-Prototype--Copy-?node-id=0-1&t=POm7h4DuQ6Zz3TYh-1)
+
 > **This is a design prototype.** It is not a government website, is not
 > affiliated with or endorsed by any government body, and submits nothing
-> anywhere. Every page carries that notice.
+> anywhere.
 
 ![Landing page](docs/screenshots/index.jpg)
 
@@ -159,7 +161,7 @@ portal means editing one file.
 | **Spacing** | 4px grid (`--sp-1` … `--sp-16`) |
 | **Target size** | 44px minimum on every control |
 
-`docs/design-tokens.md` lists every token with its measured contrast ratio.
+`docs/design-tokens.md` lists every token with its measured contrast ratio. Full UI mockups, design tokens, and components are mapped in the [Figma design file](https://www.figma.com/design/AJ597dJCheWnMUjGzU0BL5/JanSeva-AI-%E2%80%93-Website-Prototype--Copy-?node-id=0-1&t=POm7h4DuQ6Zz3TYh-1).
 
 ---
 
