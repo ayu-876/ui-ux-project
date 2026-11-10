@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Choose your language · JanSeva AI</title>
+<meta name="description" content="Pick one of twelve languages for the whole of JanSeva AI.">
+<meta name="theme-color" content="#0F2557">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+
+<!-- Load order matters: tokens define the variables every later file reads,
+     fonts registers the ten families, then base, layout, components, pages. -->
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/fonts.css">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/layout.css">
+<link rel="stylesheet" href="assets/css/components.css">
+<link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<div id="live-region" class="sr-only" role="status" aria-live="polite"></div>
+<main id="main" class="lang-page">
+  <div class="lang-card">
+
+    <div class="lang-card__head">
+      <a class="site-header__brand" href="index.html"><img src="assets/img/logo.svg" width="30" height="34" alt=""><span>JanSeva&nbsp;<em>AI</em></span></a>
+      <h1 data-i18n="lang.heading">Choose Your Language</h1>
+      <p>Select your preferred language to continue. You can change it later from any page.</p>
+    </div>
+
+    <h2 class="sr-only">Available languages</h2>
+    <ul class="lang-grid">
+        <li>
+          <button class="lang-tile" type="button" data-lang="en" aria-pressed="true" lang="en">
+            <span class="lang-tile__native">English</span>
+            <span class="lang-tile__latin" lang="en">English</span>
+          </button>
+        </li>
+        <li>
+          <button class="lang-tile" type="button" data-lang="hi" aria-pressed="false" lang="hi">
+            <span class="lang-tile__native">हिंदी</span>
+            <span class="lang-tile__latin" lang="en">Hindi</span>
+          </button>
+        </li>
+        <li>
+          <button class="lang-tile" type="button" data-lang="bn" aria-pressed="false" lang="bn">
+            <span class="lang-tile__native">বাংলা</span>
+            <span class="lang-tile__latin" lang="en">Bengali</span>
+          </button>
+        </li>
+        <li>
+          <button class="lang-tile" type="button" data-lang="mr" aria-pressed="false" lang="mr">
+            <span class="lang-tile__native">मराठी</span>
+            <span class="lang-tile__latin" lang="en">Marathi</span>
+          </button>
+        </li>
+        <li>
+          <button class="lang-tile" type="button" data-lang="te" aria-pressed="false" lang="te">
+            <span class="lang-tile__native">తెలుగు</span>
+            <span class="lang-tile__latin" lang="en">Telugu</span>
+          </button>
+        </li>
+        <li>
+          <button class="lang-tile" type="button" data-lang="ta" aria-pressed="false" lang="ta">
+            <span class="lang-tile__native">தமிழ்</span>
+            <span class="lang-tile__latin" lang="en">Tamil</span>
+          </button>
+        </li>
+        <li>
+          <button class="lang-tile" type="button" data-lang="gu" aria-pressed="false" lang="gu">
+            <span class="lang-tile__native">ગુજરાતી</span>
+            <span class="lang-tile__latin" lang="en">Gujarati</span>
+          </button>
+        </li>
+        <li>
+          <button class="lang-tile" type="button" data-lang="kn" aria-pressed="false" lang="kn">
+            <span class="lang-tile__native">ಕನ್ನಡ</span>
+            <span class="lang-tile__latin" lang="en">Kannada</span>
+          </button>
+        </li>
+        <li>
+          <button class="lang-tile" type="button" data-lang="ml" aria-pressed="false" lang="ml">
+            <span class="lang-tile__native">മലയാളം</span>
+            <span class="lang-tile__latin" lang="en">Malayalam</span>
+          </button>
+        </li>
+        <li>
+          <button class="lang-tile" type="button" data-lang="pa" aria-pressed="false" lang="pa">
+            <span class="lang-tile__native">ਪੰਜਾਬੀ</span>
+            <span class="lang-tile__latin" lang="en">Punjabi</span>
+          </button>
+        </li>
+        <li>
+          <button class="lang-tile" type="button" data-lang="or" aria-pressed="false" lang="or">
+            <span class="lang-tile__native">ଓଡ଼ିଆ</span>
+            <span class="lang-tile__latin" lang="en">Odia</span>
+          </button>
+        </li>
+        <li>
+          <button class="lang-tile" type="button" data-lang="as" aria-pressed="false" lang="as">
+            <span class="lang-tile__native">অসমীয়া</span>
+            <span class="lang-tile__latin" lang="en">Assamese</span>
+          </button>
+        </li>
+    </ul>
+
+    <div class="lang-card__foot">
+      <a class="btn btn--secondary" href="index.html"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg><span>Close</span></a>
+      <a class="btn btn--primary" href="dashboard.html">
+        <span data-i18n="action.continue">Continue</span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+
+  </div>
+</main>
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/demo-data.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>
